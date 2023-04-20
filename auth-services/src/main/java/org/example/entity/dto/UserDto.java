@@ -2,18 +2,10 @@ package org.example.entity.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Value;
 
-@Getter
-@Setter
+@Value
 public class UserDto {
-    private String login;
-    private String password;
-
-    public UserDto() {
-    }
-
-    public UserDto(String login, String password) {
-        this.password = password;
-        this.login = login;
-    }
+    String clientId;
+    String clientSecret;
 }

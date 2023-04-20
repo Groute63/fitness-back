@@ -5,9 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-
-public class KursachBackApplication {
+public class AuthApplication {
     public static void main(String[] args) {
-        SpringApplication.run(KursachBackApplication.class, args);
+        SpringApplication.run(AuthApplication.class, args);
     }
 }

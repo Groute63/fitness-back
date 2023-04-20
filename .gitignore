@@ -1,0 +1,3 @@
+# Project exclude paths
+/auth-services/target/
+/spring-boot-starter/target/
