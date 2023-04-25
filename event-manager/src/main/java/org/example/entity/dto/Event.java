@@ -1,9 +1,11 @@
 package org.example.entity.dto;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.*;
-import org.example.entity.ExerciseEntity;
+import org.example.entity.Token;
 
-import java.util.Date;
 import java.util.List;
 
 @Data

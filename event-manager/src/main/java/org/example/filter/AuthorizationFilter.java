@@ -34,7 +34,6 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
         else if (!tokenService.checkToken(authHeader)) {
-            System.out.println("Я ЕБЛАН");
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         }
         else {

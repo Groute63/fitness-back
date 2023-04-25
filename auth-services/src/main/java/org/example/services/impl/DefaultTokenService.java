@@ -31,6 +31,8 @@ public class DefaultTokenService implements TokenService {
 
     @Override
     public String generateToken(String clientId) {
+        Client client = clientRepository.getById(clientId);
+        if(client.getToken() != null) return client.getToken().getToken();
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         Instant now = Instant.now();
         Instant exp = now.plus(5, ChronoUnit.DAYS);
@@ -41,12 +43,12 @@ public class DefaultTokenService implements TokenService {
                 .withIssuedAt(Date.from(now))
                 .withExpiresAt(Date.from(exp))
                 .sign(algorithm);
-        Client client = clientRepository.getById(clientId);
-        Token token = new Token();
-        token.setClient(client);
-        token.setToken(jwt);
-        client.setToken(token);
-        clientRepository.save(client);
+
+            Token token = new Token();
+            token.setClient(client);
+            token.setToken(jwt);
+            client.setToken(token);
+            clientRepository.save(client);
         return jwt;
     }
 

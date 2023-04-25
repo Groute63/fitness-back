@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.entity.dto.Event;
 
 @Data
 @NoArgsConstructor
@@ -19,4 +20,7 @@ public class Token {
 
     @OneToOne(mappedBy = "token")
     private Client client;
+
+    @OneToOne(mappedBy = "token")
+    private EventEntity event;
 }

@@ -29,6 +29,10 @@ public class EventEntity {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<ExerciseEntity> exercise = new ArrayList<>();
 
+    @OneToOne()
+    @JoinColumn(name = "token_id")
+    private Token token;
+
     @Override
     public String toString() {
         return "EventEntity{" +
