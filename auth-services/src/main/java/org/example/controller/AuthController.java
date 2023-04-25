@@ -21,14 +21,14 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity<String> register(@RequestBody UserDto user) throws LoginException {
-        clientService.register(user.getClientId(), user.getClientSecret());
+        clientService.register(user.getLogin(), user.getPassword());
         return ResponseEntity.ok("Registered");
     }
 
     @PostMapping("/token")
     public TokenResponse getToken(@RequestBody UserDto user) throws LoginException {
-        clientService.checkCredentials(user.getClientId(), user.getClientSecret());
-        return new TokenResponse(tokenService.generateToken(user.getClientId()));
+        clientService.checkCredentials(user.getLogin(), user.getPassword());
+        return new TokenResponse(tokenService.generateToken(user.getLogin()));
     }
 
     @ExceptionHandler({LoginException.class})

@@ -1,7 +1,6 @@
 package org.example.entity.dto;
 
 import lombok.*;
-import org.example.entity.ExerciseEntity;
 
 import java.util.Date;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Event {
+public class EventResponse {
     private long id;
 
     private String title;
@@ -20,8 +19,6 @@ public class Event {
     private String start;
 
     private String end;
-
-    private String date;
 
     private List<Exercise> exercises;
 }

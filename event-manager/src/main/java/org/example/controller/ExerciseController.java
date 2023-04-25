@@ -31,8 +31,8 @@ public class ExerciseController {
         exerciseServices.addExercise(request);
     }
 
-    @PutMapping("/{id}")
-    public void updateBook(@PathVariable Long id, @RequestBody Exercise request) {
+    @PutMapping
+    public void updateExercise(@RequestBody Exercise request) {
         exerciseServices.addExercise(request);
     }
 

@@ -32,7 +32,7 @@ public class ExerciseServices {
         return ExerciseMapper.exerciseEntityToExercise(exerciseEntity);
     }
 
-    public void addExercise(Exercise exercise) {
+    public void addExercise(Exercise exercise) {;
         ExerciseEntity exerciseEntity = ExerciseMapper.exerciseToExerciseEntity(exercise);
         exerciseRepository.save(exerciseEntity);
     }

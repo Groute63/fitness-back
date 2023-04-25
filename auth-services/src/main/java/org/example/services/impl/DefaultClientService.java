@@ -16,12 +16,11 @@ public class DefaultClientService implements ClientService {
     private final ClientRepository userRepository;
 
     @Override
-    public void register(String clientId, String clientSecret) throws LoginException {
-        if (userRepository.findById(clientId).isPresent())
-            throw new LoginException("Client with id: " + clientId + " already registered");
-
+    public void register(String clientName, String clientSecret) throws LoginException {
+        if (userRepository.findByClientId(clientName).isPresent())
+            throw new LoginException("Client with name: " + clientName + " already registered");
         String hash = BCrypt.hashpw(clientSecret, BCrypt.gensalt());
-        userRepository.save(new Client(clientId, hash));
+        userRepository.save(new Client(clientName, hash));
     }
 
     @Override

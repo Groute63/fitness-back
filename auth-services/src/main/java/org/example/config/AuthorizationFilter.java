@@ -12,17 +12,17 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-@Component
-@RequiredArgsConstructor
-public class AuthorizationFilter extends OncePerRequestFilter {
+//@Component
+//@RequiredArgsConstructor
+public class AuthorizationFilter{ //extends OncePerRequestFilter {
 
-    private final TokenService tokenService;
+    /* private final TokenService tokenService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("рохожу фильтр");
+        System.out.println("Прохожу фильтр");
         filterChain.doFilter(request, response);
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (authHeader == null || authHeader.isBlank())
@@ -38,5 +38,5 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             return false;
         String token = auth.substring(7);
         return tokenService.checkToken(token);
-    }
+    }*/
 }

@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.example.repository.TokenRepo;
 import org.example.services.TokenService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -28,22 +29,16 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         System.out.println(request.getHeader(HttpHeaders.AUTHORIZATION));
-
+        System.out.println(!tokenService.checkToken(authHeader));
         if (authHeader == null || authHeader.isBlank()) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
-        else if (!checkAuthorization(authHeader)) {
+        else if (!tokenService.checkToken(authHeader)) {
+            System.out.println("Я ЕБЛАН");
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         }
         else {
             filterChain.doFilter(request, response);
         }
-    }
-
-    private boolean checkAuthorization(String auth) {
-        if (!auth.startsWith("Bearer "))
-            return false;
-        String token = auth.substring(7);
-        return tokenService.checkToken(token);
     }
 }

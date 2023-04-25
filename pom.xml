@@ -15,7 +15,7 @@
     <name>fitness-back</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <module>spring-boot-starter</module>
+
         <module>auth-services</module>
         <module>api-gateway</module>
         <module>event-manager</module>

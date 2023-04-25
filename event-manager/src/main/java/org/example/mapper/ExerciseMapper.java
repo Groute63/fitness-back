@@ -11,12 +11,13 @@ public class ExerciseMapper {
         return new ExerciseEntity(exercise.getId(),exercise.getTitle(), exercise.getSets(), exercise.getRepeats(), null);
     }
 
-    public static ExerciseEntity exerciseToExerciseEntity(Exercise exercise, Event event){
-        //todo доделать
-        return new ExerciseEntity(exercise.getId(),exercise.getTitle(), exercise.getSets(), exercise.getRepeats(), null);
-    }
-
     public static Exercise exerciseEntityToExercise(ExerciseEntity exerciseEntity){
         return new Exercise(exerciseEntity.getId(),exerciseEntity.getTitle(), exerciseEntity.getSets(), exerciseEntity.getRepeats());
     }
+
+    public static ExerciseEntity exerciseToExerciseEntity(Exercise exercise, Event event){
+        //todo доделать непонятна c перегрузкой сетить эвент
+        return new ExerciseEntity(exercise.getId(),exercise.getTitle(), exercise.getSets(), exercise.getRepeats(), null);
+    }
+
 }

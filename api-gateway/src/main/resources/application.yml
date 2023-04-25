@@ -8,7 +8,15 @@ spring:
         ssl:
           useInsecureTrustManager: true
       routes:
+        - id: events
+          uri: http://localhost:8080
+          predicates:
+            - Path=/events/**
         - id: exercise
+          uri: http://localhost:8080
+          predicates:
+            - Path=/exercise/**
+        - id: events
           uri: http://localhost:8080
           predicates:
             - Path=/exercise/**
